@@ -1,0 +1,36 @@
+/*
+ * Dependencies
+ */
+var gulp = require('gulp'),
+  concat = require('gulp-concat'),
+  uglify = require('gulp-uglify');
+  inject = require('gulp-inject');
+
+/*
+ * Main task
+ */
+
+gulp.task('default', function() {
+  gulp.src('main/src/**/*.js')
+    .pipe(concat('allTogether.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('main/build/'))
+});
+
+gulp.task('includeScripts', function() {
+  var target = gulp.src('./main/index.html');
+  var sources = ['./main/src/**/*.js', './main/src/**/*.css', './main/bower_components/bootstrap/**/*.css',
+    './main/bower_components/bootstrap/**/*.js'
+  ];
+  // TODO FIGHT TO REMOVE THE MAIN FOLDER.
+  var sources = gulp.src(sources, {
+    read: false
+  }, {
+    ignorePath: 'main'
+  }, {
+    cwd: __dirname + '/main'
+  });
+
+  return target.pipe(inject(sources))
+    .pipe(gulp.dest('./main'));
+});

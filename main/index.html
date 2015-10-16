@@ -1,0 +1,61 @@
+<!-- index.html -->
+<!doctype html>
+
+<html ng-app = "angularApp">
+<head>
+	<title>For Indoor use only</title>
+	<script src="/bower_components/angular/angular.min.js"></script>
+	<script src="/bower_components/angular-route/angular-route.min.js"></script>
+	<script src="/bower_components/jquery/jquery.min.js"></script>
+	<!-- inject:js -->
+	<script src="/src/main.js"></script>
+	<script src="/src/mainController.js"></script>
+	<script src="/src/services/services.js"></script>
+	<script src="/src/services/jodaText/jodaTextResource.js"></script>
+	<script src="/src/services/jodaText/jodaTextService.js"></script>
+	<script src="/bower_components/bootstrap/js/affix.js"></script>
+	<script src="/bower_components/bootstrap/js/tooltip.js"></script>
+	<script src="/bower_components/bootstrap/js/alert.js"></script>
+	<script src="/bower_components/bootstrap/js/button.js"></script>
+	<script src="/bower_components/bootstrap/js/carousel.js"></script>
+	<script src="/bower_components/bootstrap/js/collapse.js"></script>
+	<script src="/bower_components/bootstrap/js/dropdown.js"></script>
+	<script src="/bower_components/bootstrap/js/modal.js"></script>
+	<script src="/bower_components/bootstrap/js/popover.js"></script>
+	<script src="/bower_components/bootstrap/js/scrollspy.js"></script>
+	<script src="/bower_components/bootstrap/js/tab.js"></script>
+	
+	<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<!-- endinject -->
+	<!-- inject:css -->
+	<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link href="/src/css/jumbotron-narrow.css" rel="stylesheet">
+	<!-- endinject -->
+	<body>
+		<div> 
+			<div ng-controller="angularController" class="container">
+
+				<div class="jumbotron">
+					<h1>Joda speaks API</h1>
+					<p class="lead">Just type a sentence to turn it into Joda peach.</p>
+					<img src="/src/images/master_yoda.png" class="img-responsive">
+					<p><a class="btn btn-lg btn-success" ng-click="getJodaText(text.speech)" role="button">Joda it</a></p>
+				</div>
+
+
+				<form role="form" class ="span6">
+
+					<div class="form-group">
+						<label for="email">Enter test here:</label>
+						<input class="form-control" id="email" ng-model="text.speech">
+					</div>
+					<div class="form-group">
+						<label for="pwd">Joda:</label>
+						<input class="form-control" id="pwd" ng-model="text.jodaSpeech">
+					</div>
+				</form>
+			</div>
+
+		</body>
+		</html>

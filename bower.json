@@ -1,0 +1,22 @@
+{
+  "name": "AngularApp",
+  "version": "0.0.1",
+  "authors": [
+    "For indoor Use only <josete4ever@gmail.com.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.4.0",
+    "angular-route" : "1.4.0",
+    "bootstrap": "~3.0.0",
+    "jquery": "~2.0.3",
+    "underscore": "~1.5.2"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "angular-todo",
+  "version": "0.0.1",
+  "description": "Simple Angular TODO app based in MEAN stack",
+  "main": "server.js",
+  "dependencies": {
+    "express": "~3.x",
+    "mongoose": "latest",
+    "gulp": "latest",
+    "gulp-concat": "^2.3.4",
+    "gulp-uglify": "^0.3.1"
+  },
+  "devDependencies": {
+    "gulp-inject": "~3.0.0"
+  }
+}
