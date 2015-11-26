@@ -6,6 +6,24 @@ var gulp = require('gulp'),
   uglify = require('gulp-uglify');
   inject = require('gulp-inject');
 
+var Server = require('karma').Server;
+
+/**
+ * Run test once and exit
+ */
+gulp.task('test', function (done) {
+  new Server({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
+});
+
+gulp.task('tdd', function (done) {
+  new Server({
+    configFile: __dirname + '/karma.conf.js'
+  }, done).start();
+});
+
 /*
  * Main task
  */
@@ -16,6 +34,7 @@ gulp.task('default', function() {
     .pipe(uglify())
     .pipe(gulp.dest('main/build/'))
 });
+
 
 gulp.task('includeScripts', function() {
   var target = gulp.src('./main/index.html');
