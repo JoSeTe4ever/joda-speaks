@@ -1,4 +1,4 @@
-
+'use strict'
 
 describe("angularController", function() {
 	var createAngularController, $scope, jodaTextService;
@@ -10,7 +10,6 @@ describe("angularController", function() {
 
 			$scope = $rootScope_.$new();
 			jodaTextService = jodaTextService_;
-			console.log("estoy aqui");
 			createAngularController = function() {
 				var controller = $controller('angularController', {
 					$scope: $scope
@@ -20,7 +19,6 @@ describe("angularController", function() {
 			};
 		}
 	]));
-
 
 	describe("$scope", function() {
 		describe("getJodaText", function() {
@@ -33,24 +31,27 @@ describe("angularController", function() {
 					statusText: "OK"
 				}
 
-				//Act 
+				jodaTextService.jodaTalks.defer.resolve(responseMock);
+				createAngularController();
 
+				//Act 
+				$scope.$apply();	
 
 				//Assert
-
+				expect($scope.text.jodaSpeech).toBe(responseMock.data);	
 			});
 
 			it("must be an empty object if the jodaTextService returns an error", function() {
 				// Arrange
+				jodaTextService.jodaTalks.defer.error("error");
+				createAngularController();
 
 				//Act 
-
+				$scope.$apply();	
 
 				//Assert
-
+				expect($scope.text.jodaSpeech).toBe({});	
 			});
-
-
 		});
 	});
 });
